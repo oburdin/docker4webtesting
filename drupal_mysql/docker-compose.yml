@@ -1,0 +1,19 @@
+web:
+  build: ./drupal8
+  hostname: drupal8
+  environment:
+     - TERM=xterm
+  ports:
+    - "8000:80"
+  links:
+    - db
+    
+db:
+  build: ./mysql
+  environment:
+     - MYSQL_ROOT_PASSWORD=mysqlrootverysecretpassword
+     - MYSQL_USER=mruser
+     - MYSQL_PASSWORD=mruserpass
+     - MYSQL_DATABASE=drupal
+
+
