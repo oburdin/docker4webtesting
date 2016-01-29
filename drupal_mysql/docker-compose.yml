@@ -1,12 +1,14 @@
 web:
   build: ./drupal8
-  hostname: drupal8
+  hostname: drupal8ready
   environment:
      - TERM=xterm
   ports:
     - "8000:80"
   links:
     - db
+  volumes:
+    - ./myproject:/var/www/html
     
 db:
   build: ./mysql
